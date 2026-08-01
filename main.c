@@ -23,6 +23,7 @@ bool gamestate = false;
 
 while(1){
 
+printf("\n");
 printf("would you like 301 or 501?\n");
 scanf("%d", &preferedG);
 
@@ -38,7 +39,6 @@ gamestate = false;
 printf("invalid choice\n");
 }
 
-printf("player points: %d\n", player1.points);
 
 while(gamestate){
 
@@ -56,11 +56,11 @@ gamestate = false;
 printf("well done");
 }
 
+printf("\n");
 printf("points = %d\n", player1.points);
 printf("darts thrown = %d\n", player1.dartC);
-
-
 printf("%s\n", calc_score(player1.points));
+printf("\n");
 }
 
 else{
