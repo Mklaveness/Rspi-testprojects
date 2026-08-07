@@ -5,7 +5,7 @@
 
 #include "ExitScore.h"
 #include "dbhandler.h"
-
+#include "Player.h"
 
 
 typedef struct {
@@ -20,28 +20,34 @@ int preferedG = 0;
 player player1;
 player1.points = 0;
 player1.dartC = 0;
+char P_username[30];
 
 sqlite3 *db = NULL;
 openDB(&db);
 
-char pref[5];
+char pref[2];
 
 bool gamestate = false;
 bool guestMode = false;
 
 while(1){
 
-printf("[G]uest,  [U]ser,  [N]ew user");
+printf("[G]uest,  [U]ser,  [N]ew user\n");
 scanf("%s", pref);
 
-if(pref == 'G'){
+if(pref[0] == 'G'){
 guestMode = true;
+printf("Welcome guest:)\n");
 }
-else if(pref == 'U'){
-//finne gjeldende bruker ved hjelp av id
+
+else if(pref[0] == 'U'){
+printf("please type your username: ");
+scanf("%29s", P_username);
+findPlayer(&db, P_username);
 }
-else if(pref == 'N'){
-//ny bruker
+
+else if(pref[0] == 'N'){
+
 }
 else{
 printf("invalid choice");

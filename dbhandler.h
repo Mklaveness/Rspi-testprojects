@@ -6,7 +6,4 @@
 
 void openDB(sqlite3 **db);
 
-
-
-
 #endif
